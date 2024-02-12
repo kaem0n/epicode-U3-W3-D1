@@ -1,9 +1,10 @@
 import { Row, Col, Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const Job = ({ data }) => {
   const dispatch = useDispatch()
+  const params = useParams()
 
   return (
     <Row
@@ -17,18 +18,20 @@ const Job = ({ data }) => {
         <a href={data.url} target="_blank" rel="noreferrer">
           {data.title}
         </a>
-        <Button
-          variant="secondary"
-          className="me-2"
-          onClick={() =>
-            dispatch({
-              type: 'ADD_TO_FAVORITES',
-              payload: data,
-            })
-          }
-        >
-          Add to Favorites
-        </Button>
+        {!params.company && (
+          <Button
+            variant="secondary"
+            className="me-2"
+            onClick={() =>
+              dispatch({
+                type: 'ADD_TO_FAVORITES',
+                payload: data,
+              })
+            }
+          >
+            Add company to Favorites
+          </Button>
+        )}
       </Col>
     </Row>
   )
