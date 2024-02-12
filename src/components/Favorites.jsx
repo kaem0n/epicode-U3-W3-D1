@@ -20,10 +20,7 @@ const Favorites = () => {
               <Button
                 variant="danger"
                 onClick={() =>
-                  dispatch({
-                    type: 'REMOVE_FAVORITE',
-                    payload: el._id,
-                  })
+                  dispatch({ type: 'REMOVE_FAVORITE', payload: el._id })
                 }
               >
                 REMOVE

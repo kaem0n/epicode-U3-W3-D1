@@ -23,10 +23,7 @@ const Job = ({ data }) => {
             variant="secondary"
             className="me-2"
             onClick={() =>
-              dispatch({
-                type: 'ADD_TO_FAVORITES',
-                payload: data,
-              })
+              dispatch({ type: 'ADD_TO_FAVORITES', payload: data })
             }
           >
             Add company to Favorites
